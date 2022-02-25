@@ -1,0 +1,196 @@
+
+####################################################################3
+
+sudo apt install build-essential git vim xcb libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev libasound2-dev libxcb-xtest0-dev libxcb-shape0-dev
+********************************************************
+
+$ sudo apt-get install libxcb-xinerama0-dev libxcb-icccm4-dev libxcb-randr0-dev libxcb-util0-dev libxcb-ewmh-dev libxcb-keysyms1-dev libxcb-shape0-dev
+
+
+
+
+****************************************************
+cd downloads
+ git clone https://github.com/baskerville/bspwm.git
+ git clone https://github.com/baskerville/sxhkd.git
+ cd bspwm && make && sudo make install
+cd ../sxhkd && make && sudo make install
+
+$ mkdir ~/.config/bspwm
+mkdir ~/.config/sxhkd
+
+cd ../bspwm
+$ cp examples/bspwmrc ~/.config/bspwm/
+
+$ chmod +x ~/.config/bspwm/bspwmrc
+
+
+$ cp examples/sxhkdrc ~/.config/sxhkd/
+
+
+open sxhkd put alarkitty
+
+
+###############################################################
+
+
+sudo apt install cmake cmake-data pkg-config python3-sphinx libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev libpulse-dev libjsoncpp-dev libmpdclient-dev libcurl4-openssl-dev libnl-genl-3-dev libuv1.dev
+
+
+
+
+
+cd ~/Downloads 
+
+
+git clone --recursive https://github.com/polybar/polybar
+
+
+cd polybar
+
+mkdir build
+
+cd build
+
+cmake ..
+
+make -j$(nproc)
+
+sudo make install
+
+
+######################################################################3
+sudo apt install libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev libpcre2-dev libpcre3-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev meson
+
+
+cd ~/Downloads
+ 
+git clone https://github.com/ibhagwan/picom.git
+
+cd picome
+
+$ git submodule update --init --recursive
+$ meson --buildtype=release . build
+$ ninja -C build
+
+
+
+#################################################################3
+
+
+cd ~/Downloads
+
+
+git clone https://github.com/VaughnValle/blue-sky
+
+mkdir ~/.config/alacritty
+
+cp blue-sky/alacritty/alacritty.yml ~/.config/alacritty
+
+vim ~/.config/alacritty/alacritty.yml
+
+###ADJUSTMENTS
+BOOT
+######################################################################3
+
+RESTART SXHKD:SUPER+ESC
+
+CLOSE SUPER+W
+
+xrander --output -Screen 0 --mode
+
+############################################
+cd ~/Downloads
+
+cd blue-sky
+
+
+sudo cp -r Source_Code_Pro /usr/share/fonts
+
+fc-cache -v
+
+#######################################
+
+sudo apt install feh
+
+echo 'feh --bg-fill $HOME/Downloads/blue-sky/wallpapers/blue3.png' >> ~/.config/bspwm/bspwmrc
+
+SUPER+ALT+R RESTART
+
+
+vim ~/.config/bspwm/bspwmrc
+
+xsetroot -cursor_name_left_ptr &
+
+super alt R
+
+########################################################3
+mkdir ~/.config/polybar
+
+
+
+
+cd ~/Downloads/blue-sky/polybar
+cp * -r ~/.config/polybar 
+echo '~/.config/polybar/./launch.sh' >> ~/.config/bspwm/bspwmrc
+cd fonts 
+sudo cp * /usr/share/fonts/truetype/
+fc-cache -v
+
+#################################################################
+mkdir ~/.config/picom
+
+cd ~/.config/picom
+
+cp ~/Downloads/blue-sky/picom.conf
+
+ls 
+
+
+picom --experimental-backends&
+
+echo 'picom --experimental-backends &' >> ~/.config/bspwm/bspwmrc
+
+echo 'bspc config border_width 0' >> ~/.config/bspwm/bspwmrc
+
+
+##############################################################3
+
+apt install zsh
+
+$ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+
+
+pwerlevel10k
+
+
+mkdir -p ~/.config/rofi/themes
+
+cp ~/Downloads/blue-sky/nord.rasi ~/.config/rofi/themes
+
+
+rofi-theme-selector
+
+
+
+
+in sxhkd replace dmenu by rofi
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++$$$$$$$$$4
+sudo apt install slim libpam0g-dev libxrandr-dev libfreetype-dev libimlib2-dev libxft-dev
+
+cd ~/Downloads
+git clone https://github.com/joelburget/slimlock.git
+cd slimlock
+sudo make 
+sudo make install 
+cd..
+
+cd ~/Downloads/blue-sky/slim
+sudo cp slim.conf /etc && sudo cp slimlock.conf /etc
+sudo cp -r default /usr/share/slim/themes
+
+
+
+
